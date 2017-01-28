@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import app.com.pearlsravanthi.myinventory.data.ProductContract.ProductEntry;
 
 import static android.content.ContentValues.TAG;
@@ -60,6 +62,9 @@ public class ProductsCursorAdapter extends CursorAdapter {
     // Decrease product count by 1
     private void buyProduct(Context context, Uri itemUri, int currentCount) {
         int newCount = (currentCount >= 1) ? currentCount - 1 : 0;
+        if(newCount == 0) {
+            Toast.makeText(context, context.getString(R.string.no_quantity), Toast.LENGTH_SHORT).show();
+        }
         ContentValues values = new ContentValues();
         values.put(ProductEntry.COLUMN_PRODUCT_COUNT, newCount );
         int numRowsUpdated = context.getContentResolver().update(itemUri, values, null, null);
