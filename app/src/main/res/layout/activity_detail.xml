@@ -44,9 +44,9 @@
         android:id="@+id/availability_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/product_price_label"
-        android:layout_toRightOf="@id/product_availability_label">
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:layout_below="@id/product_availability_label">
 
         <Button
             android:id="@+id/decrease_count_button"
